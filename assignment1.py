@@ -29,6 +29,7 @@ def day_of_week(year: int, month: int, date: int) -> str:
   
 def mon_max(month:int, year:int) -> int:
     "returns the maximum day for a given month. Includes leap year check"
+    # last day of feb depends if leap year
     if leap_year(year):
         mon_max = { 1:31, 2:29, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
     else:
@@ -69,7 +70,8 @@ def after(date: str) -> str:
 
 
 def splitdate(date: str) -> tuple[int, int, int]:
-    "splits the date into year, month, day - created for reusable purpose"
+    "Splits the date into year, month, day - created for reusable purpose"
+    "Returns int tuple of year, month, day"
     str_year, str_month, str_day = date.split('-')
     year = int(str_year)
     month = int(str_month)
@@ -109,21 +111,22 @@ def leap_year(year: int) -> bool:
 
 def valid_date(date: str) -> bool:
     "check validity of date and return True if valid"
+    # check for incorrect format
     if len(date) != 10 or date[4] != '-' or date[7] != '-':
-        #print("incorrect length or - missing") # for testing only
         return False
     
     year, month, day = splitdate(date) # split the date into year month day for checking
     
+    # check if month is within valid range
     if month < 1 or month > 12:
-        #print("invalid month") # for testing only
         return False
     
+    # check if day is less than 1
     if day < 1:
         return False
 
+    # check if day exceeds last day of month
     if day > mon_max(month, year):
-        #print("day exceeds month's days") # for testing only
         return False
 
     return True
@@ -131,12 +134,14 @@ def valid_date(date: str) -> bool:
 def day_count(start_date: str, end_date: str) -> int:
     "Counts the number of weekend days betweej two dates)"
     count = 0
-    current_date = start_date
+    current_date = start_date # set start date as current date
 
+    # loop until end date reached
     while current_date <= end_date:
         year, month, day = splitdate(current_date)
         weekday = day_of_week(year, month, day)
 
+        # check if weekday is weekend (sat/sun)
         if weekday in ['sat', 'sun']:
             count += 1 # increase count of weekend days
 
