@@ -1,0 +1,35 @@
+test_dates (__main__.TestAfter.test_dates)
+after() will give next date ... ok
+test_dtypes (__main__.TestAfter.test_dtypes)
+after() is returning string ... ok
+test_leap (__main__.TestAfter.test_leap)
+after() works with leap year ... ok
+test_daycount (__main__.TestDayCount.test_daycount)
+given a start  and end date, returns number of weekends ... ok
+test_dow (__main__.TestDayOfWeek.test_dow)
+test day of week function ... ok
+test_arg_length (__main__.TestFinal.test_arg_length)
+when args != 2, output contains usage ... ok
+test_invalid_date (__main__.TestFinal.test_invalid_date)
+output contains usage when bad date ... ok
+test_weekends_with_proper_order (__main__.TestFinal.test_weekends_with_proper_order)
+output contains 'X weekend days' w/ dates in correct order ... ok
+test_weekends_with_reversed_order (__main__.TestFinal.test_weekends_with_reversed_order)
+output contains 'X weekend days'  w/ dates reversed ... ok
+test_latest_date (__main__.TestLatestDate.test_latest_date) ... skipped 'just use sorted bro'
+test_latest_equal (__main__.TestLatestDate.test_latest_equal) ... skipped 'just use sorted bro'
+test_leap_func (__main__.TestLeap.test_leap_func)
+leap_year function exists and returns True/False ... ok
+test_leap_max (__main__.TestMonMax.test_leap_max)
+test mon_max with feb of leap/non-leap years ... ok
+test_mon_max (__main__.TestMonMax.test_mon_max)
+test the mon_max function ... ok
+test_invalid_dates (__main__.TestValidDate.test_invalid_dates)
+making sure invalid dates return False ... ok
+test_valid_dates (__main__.TestValidDate.test_valid_dates)
+making sure valid dates return True ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.390s
+
+OK (skipped=2)
